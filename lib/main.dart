@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
           appBar: AppBar(
             title: Text("Expense Tracker App"),
+            backgroundColor: Colors.red,
           ),
           body: Column(children: <Widget>[
             Card(
@@ -33,8 +34,23 @@ class MyApp extends StatelessWidget {
                   child: Row(
                     children: <Widget>[
                       Container(
+                        margin: EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 15,
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 2,
+                          ),
+                        ),
+                        padding: EdgeInsets.all(10),
                         child: Text(
                           transaction.amount.toString(),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                              color: Colors.cyan),
                         ),
                       ),
                       Column(
