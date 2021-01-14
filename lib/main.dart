@@ -54,9 +54,17 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(transaction.name),
-                          Text(transaction.date.toString()),
+                          Text(
+                            transaction.name,
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            transaction.date.toString(),
+                            style: TextStyle(color: Colors.grey),
+                          ),
                         ],
                       ),
                     ],
