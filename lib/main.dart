@@ -11,6 +11,9 @@ class MyApp extends StatelessWidget {
     Transaction(id: '2', name: 'House', amount: 6129.00, date: DateTime.now())
   ];
 
+  String transactionName;
+  String transactionAmount;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -35,9 +38,13 @@ class MyApp extends StatelessWidget {
                   children: <Widget>[
                     TextField(
                       decoration: InputDecoration(labelText: "Name"),
+                      onChanged: (value) {
+                        transactionName = value;
+                      },
                     ),
                     TextField(
                       decoration: InputDecoration(labelText: "Amount"),
+                      onChanged: (value) => transactionAmount = value,
                     ),
                     FlatButton(
                       onPressed: () {},
