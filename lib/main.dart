@@ -27,7 +27,26 @@ class MyApp extends StatelessWidget {
                   child: Text("Chart")),
             ),
             Card(
-              child: Text("List of transactions"),
+              elevation: 5,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(labelText: "Name"),
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: "Amount"),
+                    ),
+                    FlatButton(
+                      onPressed: () {},
+                      child: Text("Add transaction"),
+                      textColor: Colors.blue,
+                    )
+                  ],
+                ),
+              ),
             ),
             Column(
               children: transactions.map((transaction) {
