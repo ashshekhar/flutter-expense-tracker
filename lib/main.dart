@@ -13,18 +13,20 @@ class MyApp extends StatelessWidget {
           title: Text("Expense Tracker App"),
           backgroundColor: Colors.red,
         ),
-        body: Column(
-          children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Card(
-                color: Colors.red,
-                child: Text("Chart"),
-                elevation: 5,
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                child: Card(
+                  color: Colors.red,
+                  child: Text("Chart"),
+                  elevation: 5,
+                ),
               ),
-            ),
-            UserTransaction(),
-          ],
+              UserTransaction(),
+            ],
+          ),
         ),
       ),
     );
