@@ -10,9 +10,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Expense Tracker App"),
-          backgroundColor: Colors.red,
-        ),
+            title: Text("Expense Tracker App"),
+            backgroundColor: Colors.red,
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.add),
+                onPressed: () {},
+              )
+            ]),
         body: Column(
           children: <Widget>[
             Container(
@@ -25,6 +30,10 @@ class MyApp extends StatelessWidget {
             ),
             UserTransaction(),
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () {},
         ),
       ),
     );
