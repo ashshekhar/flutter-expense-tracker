@@ -14,7 +14,7 @@ class _NewTransactionState extends State<NewTransaction> {
 
   final amountController = TextEditingController();
 
-  void submitData() {
+  void _submitData() {
     final enteredTitle = nameController.text;
     final enteredAmount = double.parse(amountController.text);
 
@@ -25,6 +25,15 @@ class _NewTransactionState extends State<NewTransaction> {
     widget.addNewTransaction(enteredTitle, enteredAmount);
 
     Navigator.of(context).pop();
+  }
+
+  void _DatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2021),
+      lastDate: DateTime.now(),
+    );
   }
 
   @override
@@ -39,17 +48,40 @@ class _NewTransactionState extends State<NewTransaction> {
             TextField(
               decoration: InputDecoration(labelText: "Name"),
               controller: nameController,
-              onSubmitted: (_) => submitData(),
+              onSubmitted: (_) => _submitData(),
             ),
             TextField(
               decoration: InputDecoration(labelText: "Amount"),
               controller: amountController,
               keyboardType: TextInputType.number,
-              onSubmitted: (_) => submitData(),
+              onSubmitted: (_) => _submitData(),
             ),
-            FlatButton(
-              onPressed: submitData,
-              child: Text("Add transaction"),
+            Container(
+              height: 80,
+              child: Row(
+                children: <Widget>[
+                  Text("No date chosen!"),
+                  FlatButton(
+                    child: Text(
+                      "Choose Date",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    onPressed: _DatePicker,
+                  ),
+                ],
+              ),
+            ),
+            RaisedButton(
+              onPressed: _submitData,
+              color: Colors.red[400],
+              child: Text(
+                "Add transaction",
+                style: TextStyle(
+                  color: Colors.black,
+                ),
+              ),
               textColor: Colors.blue,
             ),
           ],
