@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class NewTransaction extends StatefulWidget {
   final Function addNewTransaction;
@@ -10,13 +11,13 @@ class NewTransaction extends StatefulWidget {
 }
 
 class _NewTransactionState extends State<NewTransaction> {
-  final nameController = TextEditingController();
-
-  final amountController = TextEditingController();
+  final _nameController = TextEditingController();
+  final _amountController = TextEditingController();
+  DateTime _selectedDate;
 
   void _submitData() {
-    final enteredTitle = nameController.text;
-    final enteredAmount = double.parse(amountController.text);
+    final enteredTitle = _nameController.text;
+    final enteredAmount = double.parse(_amountController.text);
 
     if (enteredTitle.isEmpty || enteredAmount <= 0) {
       return;
@@ -33,7 +34,15 @@ class _NewTransactionState extends State<NewTransaction> {
       initialDate: DateTime.now(),
       firstDate: DateTime(2021),
       lastDate: DateTime.now(),
-    );
+    ).then((pickedDate) {
+      if (pickedDate == null) {
+        return;
+      } else {
+        setState(() {
+          _selectedDate = pickedDate;
+        });
+      }
+    });
   }
 
   @override
@@ -47,12 +56,12 @@ class _NewTransactionState extends State<NewTransaction> {
           children: <Widget>[
             TextField(
               decoration: InputDecoration(labelText: "Name"),
-              controller: nameController,
+              controller: _nameController,
               onSubmitted: (_) => _submitData(),
             ),
             TextField(
               decoration: InputDecoration(labelText: "Amount"),
-              controller: amountController,
+              controller: _amountController,
               keyboardType: TextInputType.number,
               onSubmitted: (_) => _submitData(),
             ),
@@ -60,7 +69,11 @@ class _NewTransactionState extends State<NewTransaction> {
               height: 80,
               child: Row(
                 children: <Widget>[
-                  Text("No date chosen!"),
+                  Expanded(
+                    child: Text(_selectedDate == null
+                        ? "No date chosen!"
+                        : DateFormat.yMMMd().format(_selectedDate)),
+                  ),
                   FlatButton(
                     child: Text(
                       "Choose Date",
