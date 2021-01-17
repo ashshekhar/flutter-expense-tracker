@@ -29,12 +29,13 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   final List<Transaction> _userTransactions = [];
 
-  void _addNewTransaction(String name, double amount) {
+  void _addNewTransaction(String name, double amount, DateTime date) {
     final newTransaction = Transaction(
-        name: name,
-        amount: amount,
-        date: DateTime.now(),
-        id: DateTime.now().toString());
+      name: name,
+      amount: amount,
+      date: date,
+      id: DateTime.now().toString(),
+    );
 
     setState(() {
       _userTransactions.add(newTransaction);
