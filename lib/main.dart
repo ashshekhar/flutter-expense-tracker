@@ -26,10 +26,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
-  final List<Transaction> _userTransactions = [
-    Transaction(id: '1', name: 'Shoes', amount: 69.00, date: DateTime.now()),
-    Transaction(id: '2', name: 'House', amount: 6129.00, date: DateTime.now())
-  ];
+  final List<Transaction> _userTransactions = [];
 
   void _addNewTransaction(String name, double amount) {
     final newTransaction = Transaction(
@@ -78,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: double.infinity,
                 child: Card(
                   color: Theme.of(context).primaryColor,
-                  child: Text("Chart placeholder"),
+                  child: Text("Chart"),
                   elevation: 5,
                 ),
               ),
@@ -89,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
         floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
-          backgroundColor: Theme.of(context).primaryColorDark,
+          backgroundColor: Colors.amber[600],
           onPressed: () => _startNewTransaction(context),
         ),
       ),
