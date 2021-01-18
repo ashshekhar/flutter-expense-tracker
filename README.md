@@ -1,16 +1,7 @@
-# flutter_expense_tracker
+# Flutter Expense Tracker App
 
-A new Flutter project.
+## Preview
+<img width="400" alt="Screen Shot 2021-01-19 at 1 57 24 AM" src="https://user-images.githubusercontent.com/52745897/104960497-53597600-59fa-11eb-89b3-7146c4f5f13a.png">
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## [App Demo](https://user-images.githubusercontent.com/52745897/104960250-db8b4b80-59f9-11eb-8ce8-5fd7f444812c.mp4)
+Click the above link to see the app in action
